@@ -28,12 +28,52 @@ section:last-of-type{
 
 .electric-purple{
 	background: #C200FB;
+	flex-grow: 1; /*Darf wachsen...um 1, muss ich bei allen eintragen damit alle wachsen und sie teilen sich den Platz gleichmßig auf*/
 }
 
 .raspberry{
 	background: #EC0868;
+	flex-grow: 1;
 }
 
 .ferrari-red{
-	background: #FC2F00
+	background: #FC2F00;
+	flex-grow: 1;
+}
+
+.green{
+	background: #00ff00;
+	flex-grow: 4; /*Grün ist jetzt größer als die anderen und nimmt die Häkfte der Fläche ein, die anderen teilen sich den Rest, 4 weil das Ding so groß sein soll wie 4 anderen - Bienchen :-)*/
+	/*Oder ich mache es so:
+	flex-shrink: 0; heißt es kann nicht schrumpfen
+	flex-basis: 50%; heißt dieses Ding bekommt 50% der Fläche */
+}
+
+.black{
+	background: black; /*Kann Farbe hinschreiben oder Farbcode mit # am Anfang nutzen*/
+	flex-grow: 1;
+	order: -1; /*Die kleinste Order ist vorn. Am Anfang haben alle 0, wenn schwarz vor soll dann Order -1 da kleiner als 0. Hätte auch in html die Reigenfolge ändern können. Hierzu haben wir auch flexy boxes benutzt und rumprobiert*/
+}
+
+/*Hier kommt der float-Teil*/
+
+.col{ /*Gebe den cols eine Größe damit ich sie sehen kann auch wenn es noch keinen Inhalt gibt*/
+	width: 200px;
+	height: 200px;
+	float: left; /*positioniert alle nebeneinander, ohne diese Angabe, wären sie alle untereinander denn das ist die Standardeinstellung, habe hier die Farbdinger der ersten Section angesprochen (col raspberry etc) */
+}
+
+.row{ /*Jetzt hat auch die row eine Farbe und ich kann sie sehen, Höhe-so hoch wie die Hinhalte (col), Breite ist 600px weil wrapper 600px und row in wrapper ist*/
+	background: yellow; /*Kann auch background-color nehmen aber bei background könnte ich noch mehr als Farbe definieren. In diesem Fall ist es aber egal*/
+}
+
+.clearfix{ /*???Löst irgendwie die floats auf*/
+	clear: both;
+}
+
+/*Hier kommt der flex-Teil*/ /*Flex ist die moderne Methode. Liebr flex als float nehmen*/
+
+.flex{ /*Sprache row flex an aber kanns einfach nur flex nennen, für das kommende spiele auf bei flexy boxes rum und schreib es ab, ich sage nun das diese row geflext werden kann, die erste könnte es nicht*/
+	display: flex;
+	height: 200px;
 }
